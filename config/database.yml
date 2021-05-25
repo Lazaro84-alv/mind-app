@@ -23,7 +23,11 @@ default: &default
 
 development:
   <<: *default
+  adapter: postgresql
   database: mind_app_development
+  pool: 5
+  username: postgres
+  password: 123456
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -83,4 +87,4 @@ production:
   <<: *default
   database: mind_app_production
   username: mind_app
-  password: <%= ENV['MIND_APP_DATABASE_PASSWORD'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
